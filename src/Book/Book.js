@@ -1,9 +1,8 @@
 import React from 'react';
+import baseUrl from './BaseUrl'
 
 const book = (props) => {
     
-    const baseUrl = 'https://raw.githubusercontent.com/benoitvallon/100-best-books/master/static/'
-
     return (
         <li key={`${props.title}${props.author}`}>
             <img src={`${baseUrl}${props.imageLink}`}/>
