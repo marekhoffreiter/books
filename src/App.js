@@ -17,7 +17,7 @@ class App extends Component {
       .then(res => res.json())
       .then(json => {
         this.setState({
-          isloaded: true,
+          isLoaded: true,
           items: json,
         })
       });
@@ -27,27 +27,26 @@ class App extends Component {
 
     const { isLoaded, items } = this.state;
 
-    if (!isLoaded) {
-      return <div>Loading</div>;
-    }
-
-    else
-      return (
-        <div className="App">
-
-          <ul>
-            {items.map(item => (
-              <li key={item.id}>
-                Name: {item.author} | Title: {item.title} | Year: {item.year} | Picture: {item.imageLink}
-                ></li>
-            ))};
-  
+    return (
+      <div className="App">
+        {!isLoaded
+          ? <div> Loading </div>
+          : <ul>
+              {items.map(item => (
+                <li key={`${item.title}${item.author}`}>
+                  Name: {item.author} | Title: {item.title} | Year: {item.year} | Picture: {item.imageLink}
+                  ></li>
+              ))};
             </ul>
 
+        }
 
-        </div>
-      );
+
+
+      </div>
+    );
   }
 }
+
 
 export default App;
