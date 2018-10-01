@@ -37,6 +37,7 @@ class App extends Component {
                 author= {item.author}
                 title= {item.title}
                 year= {item.year}
+                imageLink= {item.imageLink}
                 />
               ))};
             </ul>
