@@ -1,0 +1,14 @@
+.Book {
+    width: 24%;
+    margin: 16px auto;
+    border: 2px solid saddlebrown;
+    box-shadow: 0 4px 7px #ccc;
+    padding: 16px;
+    text-align: left;  
+}
+
+.Book img {
+    height: 100%;
+    width: auto;
+    margin-left: 50px;
+}
