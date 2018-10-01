@@ -28,16 +28,17 @@ class App extends Component {
       <div className="App">
         {!isLoaded
           ? <div> Loading </div>
-          : (<ul>
-            {items.map(item => (
-              <Book
-                author={item.author}
-                title={item.title}
-                year={item.year}
-                imageLink={item.imageLink}
-              />
-            ))}
-          </ul>
+          : (
+            <ul>
+              {items.map(item => (
+                <Book
+                  author={item.author}
+                  title={item.title}
+                  year={item.year}
+                  imageLink={item.imageLink}
+                />
+              ))}
+            </ul>
           )}
         )
       </div>
