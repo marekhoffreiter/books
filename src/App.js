@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Book from './Book/Book'
 
 class App extends Component {
 
@@ -33,9 +33,11 @@ class App extends Component {
           ? <div> Loading </div>
           : <ul>
               {items.map(item => (
-                <li key={`${item.title}${item.author}`}>
-                  Name: {item.author} | Title: {item.title} | Year: {item.year} | Picture: {item.imageLink}
-                  ></li>
+                <Book
+                author= {item.author}
+                title= {item.title}
+                year= {item.year}
+                />
               ))};
             </ul>
 
@@ -50,3 +52,11 @@ class App extends Component {
 
 
 export default App;
+
+// return <Person
+// click={() => this.deletePersonHandler(index)} 
+// name={person.name} 
+// age={person.age}
+// key={person.id}
+// changed={(event) => this.nameChangedHandler(event, person.id)}/>
+// Name: {props.author} | Title: {props.title} | Year: {props.year} | Picture: {props.imageLink}
