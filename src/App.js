@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Book from './Book/Book'
 
 class App extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -12,10 +11,9 @@ class App extends Component {
   }
 
   componentDidMount() {
-
     fetch('https://raw.githubusercontent.com/benoitvallon/100-best-books/master/books.json')
       .then(res => res.json())
-      .then(json => {
+      .then((json) => {
         this.setState({
           isLoaded: true,
           items: json,
@@ -24,34 +22,26 @@ class App extends Component {
   }
 
   render() {
-
     const { isLoaded, items } = this.state;
 
     return (
       <div className="App">
         {!isLoaded
           ? <div> Loading </div>
-          : <ul>
-              {items.map(item => (
-                <Book
-                author= {item.author}
-                title= {item.title}
-                year= {item.year}
-                imageLink= {item.imageLink}
-                />
-              ))};
-            </ul>
-
-        }
-
-
-
+          : (<ul>
+            {items.map(item => (
+              <Book
+                author={item.author}
+                title={item.title}
+                year={item.year}
+                imageLink={item.imageLink}
+              />
+            ))}
+          </ul>
+          )}
+        )
       </div>
     );
   }
 }
-
-
 export default App;
-
-
