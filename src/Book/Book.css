@@ -25,3 +25,25 @@
   margin:20px auto;
   display: block;
 }
+
+.book .button{
+  background-color: greenyellow;
+  font: 'inherit';
+  border: 0;
+  box-shadow: 0 4px 7px #ccc;
+  padding: 8px;
+  cursor: pointer;
+  display:block;
+  margin: 20px auto;
+}
+
+.book .reservedButton{
+  background-color: red;
+  font: 'inherit';
+  border: 0;
+  box-shadow: 0 4px 7px #ccc;
+  padding: 8px;
+  cursor: pointer;
+  display:block;
+  margin: 20px auto;
+}

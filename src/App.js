@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Book from './Book/Book'
+import Reserve from './Book/Reserve';
 
 export default class App extends Component {
   constructor(props) {
@@ -7,6 +8,7 @@ export default class App extends Component {
     this.state = {
       items: [],
       isLoaded: false,
+      isReserved: false,
     }
   }
 
@@ -17,13 +19,18 @@ export default class App extends Component {
         this.setState({
           isLoaded: true,
           items: json,
+          isReserved: false,
         })
       });
   }
 
-  render() {
-    const { isLoaded, items } = this.state;
+  makeReservation() {
+    const { isReserved } = this.state;
+    this.setState({ isReserved: !isReserved })
+  }
 
+  render() {
+    const { isLoaded, items, isReserved } = this.state;
     return (
       <div className="App">
         {!isLoaded
@@ -38,6 +45,8 @@ export default class App extends Component {
                   imageLink={item.imageLink}
                   link={item.link}
                   key={`${item.author}${item.title}`}
+                  isReserved={isReserved}
+                  onClick={this.makeReservation}
                 />
               ))}
             </ul>

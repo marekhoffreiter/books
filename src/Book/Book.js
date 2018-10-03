@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import baseUrl from './BaseUrl';
 import './Book.css';
+import Reserve from './Reserve'
 
 const Book = (props) => {
   const {
@@ -10,11 +11,17 @@ const Book = (props) => {
     imageLink,
     year,
     link,
+    isReserved,
   } = props;
+
+  makeReservation() {
+    const { isReserved } = this.state;
+    this.setState({ isReserved: !isReserved })
+  };
 
   return (
     <li key={`${title}${author}`} className="book">
-      <a href={link}>
+      <a href={link} target="_blank">
         <img alt={title} src={`${baseUrl}${imageLink}`} />
       </a>
       <span className="text">
@@ -25,6 +32,9 @@ const Book = (props) => {
         | Year:
         {year}
       </span>
+      <Reserve onClick={this.makeReservation}
+        isReserved={isReserved}
+      />
     </li>
   )
 };
@@ -37,5 +47,7 @@ Book.propTypes = {
   author: PropTypes.string.isRequired,
   imageLink: PropTypes.string.isRequired,
   year: PropTypes.number.isRequired,
-  link: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,  
+  isReserved: PropTypes.bool.isRequired,
+
 }
