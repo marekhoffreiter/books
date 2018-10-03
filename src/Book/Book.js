@@ -12,12 +12,11 @@ const Book = (props) => {
     link,
   } = props;
 
-  const goToUrl = () => {
-    window.location = link;
-  }
   return (
     <li key={`${title}${author}`} className="book">
-      <img alt={title} src={`${baseUrl}${imageLink}`} onClick = {goToUrl}/>
+      <a href={link}>
+        <img alt={title} src={`${baseUrl}${imageLink}`} />
+      </a>
       <span className="text">
         Author:
         {author}
