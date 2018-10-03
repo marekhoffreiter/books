@@ -24,11 +24,6 @@ export default class App extends Component {
       });
   }
 
-  makeReservation() {
-    const { isReserved } = this.state;
-    this.setState({ isReserved: !isReserved })
-  }
-
   render() {
     const { isLoaded, items, isReserved } = this.state;
     return (
