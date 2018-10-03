@@ -36,6 +36,7 @@ export default class App extends Component {
                   title={item.title}
                   year={item.year}
                   imageLink={item.imageLink}
+                  link={item.link}
                   key={`${item.author}${item.title}`}
                 />
               ))}

@@ -9,10 +9,15 @@ const Book = (props) => {
     author,
     imageLink,
     year,
+    link,
   } = props;
+
+  const goToUrl = () => {
+    window.location = link;
+  }
   return (
     <li key={`${title}${author}`} className="book">
-      <img alt={title} src={`${baseUrl}${imageLink}`} />
+      <img alt={title} src={`${baseUrl}${imageLink}`} onClick = {goToUrl}/>
       <span className="text">
         Author:
         {author}
@@ -33,4 +38,5 @@ Book.propTypes = {
   author: PropTypes.string.isRequired,
   imageLink: PropTypes.string.isRequired,
   year: PropTypes.number.isRequired,
+  link: PropTypes.string.isRequired,
 }
