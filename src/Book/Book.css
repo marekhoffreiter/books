@@ -1,14 +1,26 @@
-.Book {
-    width: 24%;
-    margin: 16px auto;
-    border: 2px solid saddlebrown;
-    box-shadow: 0 4px 7px #ccc;
-    padding: 16px;
-    text-align: left;  
+.books {
+  text-align: center;
 }
 
-.Book img {
-    height: 100%;
-    width: auto;
-    margin-left: 50px;
+.book {
+    width: 24%;
+    margin: 20px 2%;
+    box-shadow: 0 4px 7px #ccc;
+    text-align: left;
+    list-style: none;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.book img {
+    max-width:100%;
+    height: 350px;
+    display: block;
+    margin:0 auto;
+}
+
+.book .text {
+  width: 90%;
+  margin:20px auto;
+  display: block;
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Book from './Book/Book'
 
-class App extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -29,13 +29,14 @@ class App extends Component {
         {!isLoaded
           ? <div> Loading </div>
           : (
-            <ul>
+            <ul className="books">
               {items.map(item => (
                 <Book
                   author={item.author}
                   title={item.title}
                   year={item.year}
                   imageLink={item.imageLink}
+                  key={`${item.author}${item.title}`}
                 />
               ))}
             </ul>
@@ -45,4 +46,3 @@ class App extends Component {
     );
   }
 }
-export default App;
