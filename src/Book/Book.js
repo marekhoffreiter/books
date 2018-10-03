@@ -1,13 +1,36 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import baseUrl from './BaseUrl';
 import './Book.css';
 
-const book = (props) => {
+const Book = (props) => {
+  const {
+    title,
+    author,
+    imageLink,
+    year,
+  } = props;
   return (
-    <li key={`${props.title}${props.author}`} className='Book'>
-      <img src={`${baseUrl}${props.imageLink}`} className='Book img'/> 
-        Author: {props.author} | Title: {props.title} | Year: {props.year}
+    <li key={`${title}${author}`} className="book">
+      <img alt={title} src={`${baseUrl}${imageLink}`} />
+      <span className="text">
+        Author:
+        {author}
+        | Title:
+        {title}
+        | Year:
+        {year}
+      </span>
     </li>
   )
 };
-export default book;
+
+export default Book;
+
+Book.defaultProps = {}
+Book.propTypes = {
+  title: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  imageLink: PropTypes.string.isRequired,
+  year: PropTypes.number.isRequired,
+}
