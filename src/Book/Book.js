@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import baseUrl from './BaseUrl';
-import Reserve from './Reserve/Reserve.container';
+import Reserve from './Reserve/Reserve';
 
 const Book = (props) => {
   const {

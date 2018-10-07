@@ -1,20 +1,27 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import Reserve from './Reserve';
 
 export default class ReserveContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isReserved: false,
+    }
+  }
+
   handleReserve = () => {
-    console.log("I've been clicked");
+    const { isReserved } = this.state;
+    this.setState({ isReserved: !isReserved })
   }
 
   render = () => {
+    const { isReserved, handleReserve } = this.state;
+
     return (
       <Reserve
-        handleReserve={this.handleReserve}
+        handleReserve={handleReserve}
+        isReserved={isReserved}
       />
     )
   }
 }
-
-Reserve.defaultProps = {}
-Reserve.propTypes = {}
