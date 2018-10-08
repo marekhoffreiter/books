@@ -13,26 +13,22 @@ const ShowAuthor = (props) => {
 
   return (
     <div>
-      {!isShown
-        ? (
-          <button type="button" onClick={handleShow} className={bttnClass}>
-            { bttnText }
-          </button>
-        )
-        : (
-          <div>
-            <button type="button" onClick={handleShow} className={bttnClass}>
-              { bttnText }
-            </button>
-            <div className="text">{author}</div>
-          </div>
-        )
+      <button type="button" onClick={handleShow} className={bttnClass}>
+        { bttnText }
+      </button>
+      {isShown
+      && (
+        <div className="text">
+          {author}
+        </div>
+      )
       }
     </div>
   )
 }
 
 export default ShowAuthor;
+
 ShowAuthor.defaultProps = {}
 ShowAuthor.propTypes = {
   handleShow: PropTypes.func.isRequired,
