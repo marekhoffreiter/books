@@ -5,9 +5,6 @@ import ShowAuthor from './ShowAuthor';
 export default class ShowAuthorContainer extends Component {
   constructor(props) {
     super(props);
-    const {
-      author,
-    } = props;
     this.state = {
       isShown: false,
     }
@@ -27,8 +24,8 @@ export default class ShowAuthorContainer extends Component {
     return (
       <ShowAuthor
         handleShow={this.handleShow}
-        isShown={this.isShown}
-        author={this.author}
+        isShown={isShown}
+        author={author}
       />
     )
   }
