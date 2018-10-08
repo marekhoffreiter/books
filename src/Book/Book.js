@@ -24,7 +24,7 @@ const Book = (props) => {
         {year}
       </span>
       <ShowAuthorContainer
-        author={props.author}
+        author={author}
       />
       <ReserveContainer />
     </li>
