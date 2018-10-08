@@ -7,7 +7,7 @@ export default class ShowAuthorContainer extends Component {
     super(props);
     const {
       author,
-    } = props
+    } = props;
     this.state = {
       isShown: false,
     }
@@ -22,14 +22,13 @@ export default class ShowAuthorContainer extends Component {
     const {
       isShown,
       author,
-      handleShow,
     } = this.props;
 
     return (
       <ShowAuthor
-        handleShow={handleShow}
-        isShown={isShown}
-        author={author}
+        handleShow={this.handleShow}
+        isShown={this.isShown}
+        author={this.author}
       />
     )
   }
@@ -39,7 +38,4 @@ ShowAuthorContainer.defaultProps = {}
 ShowAuthorContainer.propTypes = {
   author: PropTypes.string.isRequired,
   isShown: PropTypes.bool.isRequired,
-  handleShow: PropTypes.func.isRequired,
-
-
 }
