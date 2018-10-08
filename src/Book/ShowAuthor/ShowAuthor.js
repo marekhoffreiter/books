@@ -6,18 +6,29 @@ const ShowAuthor = (props) => {
     isShown,
     handleShow,
     author,
+    buttonType,
   } = props;
+
+  const bttnText = !buttonType ? 'Show Author' : 'Hide Author'
+  const bttnClass = !buttonType ? 'button' : 'reservedButton'
 
   return (
     <div>
       {!isShown
-        ? <button type="button" onClick={handleShow} className="button"> Show Author </button>
+        ? (
+          <button type="button" onClick={handleShow} className={bttnClass}>
+            { bttnText }
+          </button>
+        )
         : (
           <div>
-            <button type="button" onClick={handleShow} className="reservedButton"> Hide Author </button>
+            <button type="button" onClick={handleShow} className={bttnClass}>
+              { bttnText }
+            </button>
             <div className="text">{author}</div>
           </div>
-        )}
+        )
+      }
     </div>
   )
 }
@@ -28,4 +39,5 @@ ShowAuthor.propTypes = {
   handleShow: PropTypes.func.isRequired,
   author: PropTypes.string.isRequired,
   isShown: PropTypes.bool.isRequired,
+  buttonType: PropTypes.bool.isRequired,
 }
