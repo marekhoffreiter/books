@@ -7,17 +7,16 @@ export default class ShowAuthorContainer extends Component {
     super(props);
     this.state = {
       isShown: false,
-      buttonType: false,
     }
   }
 
   handleShow = () => {
-    const { isShown, buttonType } = this.state;
-    this.setState({ isShown: !isShown, buttonType: !buttonType })
+    const { isShown } = this.state;
+    this.setState({ isShown: !isShown })
   }
 
   render = () => {
-    const { isShown, buttonType } = this.state;
+    const { isShown } = this.state;
     const { author } = this.props;
 
     return (
@@ -25,7 +24,6 @@ export default class ShowAuthorContainer extends Component {
         handleShow={this.handleShow}
         isShown={isShown}
         author={author}
-        buttonType={buttonType}
       />
     )
   }

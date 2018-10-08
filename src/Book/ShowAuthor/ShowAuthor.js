@@ -6,11 +6,10 @@ const ShowAuthor = (props) => {
     isShown,
     handleShow,
     author,
-    buttonType,
   } = props;
 
-  const bttnText = !buttonType ? 'Show Author' : 'Hide Author'
-  const bttnClass = !buttonType ? 'button' : 'reservedButton'
+  const bttnText = !isShown ? 'Show Author' : 'Hide Author'
+  const bttnClass = !isShown ? 'button' : 'reservedButton'
 
   return (
     <div>
@@ -39,5 +38,4 @@ ShowAuthor.propTypes = {
   handleShow: PropTypes.func.isRequired,
   author: PropTypes.string.isRequired,
   isShown: PropTypes.bool.isRequired,
-  buttonType: PropTypes.bool.isRequired,
 }
