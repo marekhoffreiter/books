@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import baseUrl from './BaseUrl';
 import ReserveContainer from './Reserve/Reserve.container';
-import ShowAuthorContainer from './ShowAuthor/ShowAuthor.Container';
+import ShowAuthorContainer from './ShowAuthor/ShowAuthor.container';
 
 const Book = (props) => {
   const {
@@ -18,7 +18,7 @@ const Book = (props) => {
         <img alt={title} src={`${baseUrl}${imageLink}`} />
       </a>
       <span className="text">
-        | Title:
+         Title:
         {title}
         | Year:
         {year}

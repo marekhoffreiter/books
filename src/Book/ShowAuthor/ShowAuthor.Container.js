@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import ShowAuthor from './ShowAuthor';
 
 export default class ShowAuthorContainer extends Component {
@@ -18,14 +19,27 @@ export default class ShowAuthorContainer extends Component {
   }
 
   render = () => {
-    const { isShown } = this.state;
+    const {
+      isShown,
+      author,
+      handleShow,
+    } = this.props;
 
     return (
       <ShowAuthor
-        handleShow={this.handleShow}
+        handleShow={handleShow}
         isShown={isShown}
-        author={this.props.author}
+        author={author}
       />
     )
   }
+}
+
+ShowAuthorContainer.defaultProps = {}
+ShowAuthorContainer.propTypes = {
+  author: PropTypes.string.isRequired,
+  isShown: PropTypes.bool.isRequired,
+  handleShow: PropTypes.func.isRequired,
+
+
 }
