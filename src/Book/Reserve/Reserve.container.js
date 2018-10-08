@@ -15,11 +15,11 @@ export default class ReserveContainer extends Component {
   }
 
   render = () => {
-    const { isReserved, handleReserve } = this.state;
+    const { isReserved } = this.state;
 
     return (
       <Reserve
-        handleReserve={handleReserve}
+        handleReserve={this.handleReserve}
         isReserved={isReserved}
       />
     )

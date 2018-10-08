@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import baseUrl from './BaseUrl';
-import Reserve from './Reserve/Reserve';
+import ReserveContainer from './Reserve/Reserve.container';
+import ShowAuthorContainer from './ShowAuthor/ShowAuthor.Container';
 
 const Book = (props) => {
   const {
@@ -17,14 +18,15 @@ const Book = (props) => {
         <img alt={title} src={`${baseUrl}${imageLink}`} />
       </a>
       <span className="text">
-        Author:
-        {author}
         | Title:
         {title}
         | Year:
         {year}
       </span>
-      <Reserve />
+      <ShowAuthorContainer
+        author={props.author}
+      />
+      <ReserveContainer />
     </li>
   )
 };
