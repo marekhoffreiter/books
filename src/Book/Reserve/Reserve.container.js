@@ -20,19 +20,19 @@ export default class ReserveContainer extends Component {
       link,
     } = this.props;
     let book = {
-      author: { author },
-      title: { title },
-      imageLink: { imageLink },
-      year: { year },
-      link: { link },
+      author,
+      title,
+      imageLink,
+      year,
+      link,
     }
     book = Object.values(book)
     this.setState({ isReserved: !isReserved })
-    let isreserved = JSON.parse(localStorage.getItem('reservedBooks'));
-    if (isreserved == null) isreserved = [];
+    let isreserved = JSON.parse(localStorage.reservedBooks);
+    if (!isreserved) isreserved = [];
     localStorage.setItem('isreserved', JSON.stringify(book));
     isreserved.push(book);
-    localStorage.setItem('reservedBooks', JSON.stringify(isreserved));
+    localStorage.reservedBooks = JSON.stringify(isreserved);
   }
 
   render = () => {
