@@ -21,10 +21,6 @@ export default class App extends Component {
       });
   }
 
-  componentWillUpdate(nextProps, nextState) {
-    localStorage.setItem('items', JSON.stringify(nextState.items));
-  }
-
   render() {
     const { isLoaded, items } = this.state;
     return (

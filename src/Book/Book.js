@@ -26,7 +26,13 @@ const Book = (props) => {
       <ShowAuthorContainer
         author={author}
       />
-      <ReserveContainer />
+      <ReserveContainer
+        author={author}
+        title={title}
+        imageLink={imageLink}
+        year={year}
+        link={link}
+      />
     </li>
   )
 };

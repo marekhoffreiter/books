@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Reserve from './Reserve';
 
 export default class ReserveContainer extends Component {
@@ -11,7 +12,27 @@ export default class ReserveContainer extends Component {
 
   handleReserve = () => {
     const { isReserved } = this.state;
+    const {
+      author,
+      title,
+      imageLink,
+      year,
+      link,
+    } = this.props;
+    let book = {
+      author: { author },
+      title: { title },
+      imageLink: { imageLink },
+      year: { year },
+      link: { link },
+    }
+    book = Object.values(book)
     this.setState({ isReserved: !isReserved })
+    let isreserved = JSON.parse(localStorage.getItem('reservedBooks'));
+    if (isreserved == null) isreserved = [];
+    localStorage.setItem('isreserved', JSON.stringify(book));
+    isreserved.push(book);
+    localStorage.setItem('reservedBooks', JSON.stringify(isreserved));
   }
 
   render = () => {
@@ -24,4 +45,13 @@ export default class ReserveContainer extends Component {
       />
     )
   }
+}
+
+ReserveContainer.defaultProps = {}
+ReserveContainer.propTypes = {
+  author: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  imageLink: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,
+  year: PropTypes.number.isRequired,
 }
