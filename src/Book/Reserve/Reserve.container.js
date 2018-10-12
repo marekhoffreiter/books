@@ -10,6 +10,10 @@ export default class ReserveContainer extends Component {
     }
   }
 
+  componentDidMount = () => {
+    this.isBookReserved()
+  }
+
   handleReserve = () => {
     const { isReserved } = this.state;
     const {
@@ -19,20 +23,38 @@ export default class ReserveContainer extends Component {
       year,
       link,
     } = this.props;
-    let book = {
+    const book = {
       author,
       title,
       imageLink,
       year,
       link,
     }
-    book = Object.values(book)
+    let reservedBooks = JSON.parse(localStorage.getItem('reservedBooks'));
+    if (!reservedBooks) reservedBooks = [];
+    if (!isReserved) {
+      reservedBooks.push(book);
+      localStorage.reservedBooks = JSON.stringify(reservedBooks);
+    } else {
+      reservedBooks.map((booksanto, i) => {
+        return title === booksanto.title && author === booksanto.author && reservedBooks.splice(i, 1);
+      })
+    }
     this.setState({ isReserved: !isReserved })
-    let isreserved = JSON.parse(localStorage.reservedBooks);
-    if (!isreserved) isreserved = [];
-    localStorage.setItem('isreserved', JSON.stringify(book));
-    isreserved.push(book);
-    localStorage.reservedBooks = JSON.stringify(isreserved);
+  }
+
+  isBookReserved = () => {
+    const {
+      author,
+      title,
+    } = this.props;
+    const reservedBooks = JSON.parse(localStorage.getItem('reservedBooks'));
+    if (reservedBooks) {
+      const isReserved = reservedBooks.some((book) => {
+        return title === book.title && author === book.author && true
+      })
+      this.setState({ isReserved })
+    }
   }
 
   render = () => {
